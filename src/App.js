@@ -97,9 +97,16 @@ function App() {
   const [step, setStep] = useState(0);
   const [correct, setCorrect] = useState(0);
   let question = newArr[step];
-  const onClickVairant = (variant) => {
-    setStep(step + 1);
-    if (variant === question.correct) setCorrect(correct + 1);
+  const onClickVairant = (e, variant) => {
+    if (variant === question.correct) {
+      setCorrect(correct + 1);
+      e.target.style.backgroundColor = 'green';
+    }
+    else e.target.style.backgroundColor = 'red';
+    setTimeout(() => {
+      setStep(step + 1);
+      e.target.style.backgroundColor = 'white';
+    }, 1000);
   };
   const onClickReplay = () => {
     setNewArr(getShuffledArray(newArr));

@@ -13,7 +13,7 @@ export function Question({question, onClickVairant, step, totalQuestions})
                     question.variants.map
                     (
                         (text, index) => 
-                            <li key={index} onClick={()=>onClickVairant(index)} >
+                            <li key={index} onClick={(e)=>onClickVairant(e, index)} >
                                 {text}
                             </li>
                     )
